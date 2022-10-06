@@ -1,7 +1,8 @@
 # Imports
 
 from tkinter import *
-from modules import info
+from poo.classes import *
+from poo.objects import *
 
 #------------------------------------------
 
@@ -19,7 +20,8 @@ root.title("CINEMA2000")
 root.resizable(1,1)
 root.config(bg="pink")
 
-#----------------------------------------------
+#------------------------------------------
+
 
 # Images load
 
@@ -44,41 +46,41 @@ lbl_Imagen=Label(root, image=imagenL9).place(x=850, y=360)
 imagenL10=PhotoImage(file="./assets/images/blackpanter2.png")
 lbl_Imagen=Label(root, image=imagenL10).place(x=1100, y=360)
 
-#---------------------------------------------
+#------------------------------------------
 
 # Buttons
 
-button_argentina=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:info.arg1985())
+button_argentina=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:argentina1985.info())
 button_argentina.place(x=50, y=280)  
 
-button_avatar=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:info.avatar())
+button_avatar=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:avatar2.info())
 button_avatar.place(x=50, y=630) 
 
-button_dontworrydarling=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:info.dontworrydarling())
+button_dontworrydarling=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:dontWorryDarling.info())
 button_dontworrydarling.place(x=590, y=280) 
 
-button_lahuerfana=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:info.lahuerfana())
+button_lahuerfana=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:laHuerfanaElOrigen.info())
 button_lahuerfana.place(x=320, y=280)
 
-button_sonrie=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:info.sonrie())
+button_sonrie=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:sonrie.info())
 button_sonrie.place(x=850, y=280)    
 
-button_blackadam=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:info.blackadam())
+button_blackadam=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:blackAdam.info())
 button_blackadam.place(x=1100, y=280)
 
-button_thor=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:info.thor())
+button_thor=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:thorAmorYTrueno.info())
 button_thor.place(x=320, y=630)
 
-button_minions=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:info.losminions())
+button_minions=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:minionsNaceUnVillano.info())
 button_minions.place(x=590, y=630) 
 
-button_topgun=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:info.topgun())
+button_topgun=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:topGunMaveric.info())
 button_topgun.place(x=850, y=630) 
 
-button_panther=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:info.blackpanther())
+button_panther=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:blackPanther2WakandaForever.info())
 button_panther.place(x=1100, y=630)
 
-#---------------------------------------------
+#------------------------------------------
     
 root.mainloop()
 
