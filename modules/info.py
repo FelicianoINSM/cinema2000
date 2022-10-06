@@ -1,44 +1,7 @@
-from ast import arg
-from tkinter import *
-from tkinter import ttk
-import tkinter
 from tkinter import messagebox
-#import PIL import ImageTk, Image
 
-#---------------------------------------
-root=Tk()
-Miframe= Frame(root, width= 1280, height=720)
-#------------------------------------------
+# Functions
 
-root.title("CINEMA2000")
-#root.iconbitmap("Users/clari/OneDrive/Escritorio/cc/escuela/tlp/PYTHON/proyecto tlp/logo.ico")
-root.resizable(1,1)
-root.config(bg="pink")
-
-#----------------------------------------------
-
-#------------------------------------------------------
-imagenL=PhotoImage(file="./assets/images/argentina1985.png")
-lbl_Imagen=Label(root, image=imagenL).place(x=50, y=10)
-imagenL2=PhotoImage(file="./assets/images/avatar.png")
-lbl_Imagen=Label(root, image=imagenL2).place(x=50, y=360)
-imagenL3=PhotoImage(file="./assets/images/lahuerfana.png")
-lbl_Imagen=Label(root, image=imagenL3).place(x=320, y=10)
-imagenL4=PhotoImage(file="./assets/images/dontworrydarling.png")
-lbl_Imagen=Label(root, image=imagenL4).place(x=590, y=10)
-imagenL5=PhotoImage(file="./assets/images/sonrie.png")
-lbl_Imagen=Label(root, image=imagenL5).place(x=850, y=10)
-imagenL6=PhotoImage(file="./assets/images/blackadamn.png")
-lbl_Imagen=Label(root, image=imagenL6).place(x=1100, y=10)
-imagenL7=PhotoImage(file="./assets/images/thor.png")
-lbl_Imagen=Label(root, image=imagenL7).place(x=320, y=360)
-imagenL8=PhotoImage(file="./assets/images/losminions.png")
-lbl_Imagen=Label(root, image=imagenL8).place(x=590, y=360)
-imagenL9=PhotoImage(file="./assets/images/topgun.png")
-lbl_Imagen=Label(root, image=imagenL9).place(x=850, y=360)
-imagenL10=PhotoImage(file="./assets/images/blackpanter2.png")
-lbl_Imagen=Label(root, image=imagenL10).place(x=1100, y=360)
-#---------------------------------------------
 def arg1985():
     messagebox.showinfo(title="ARGENTINA 1985",
         message="Durante la década de 1980, un grupo de abogados investiga y lleva a juicio a los responsables de la dictadura cívico-militar argentina.                                                                                  GENERO:Drama                                                               DURACION: 2h 20m                                                               DIRECTOR: Santiago Mitre")
@@ -81,38 +44,4 @@ def blackpanther():
     messagebox.showinfo(title="BLACK PANTHER 2: WAKANDA FOREVER", 
     message="Una secuela que seguirá explorando el incomparable mundo de Wakanda y todos los ricos y variados personajes presentados en la película de 2018.                                     GENERO:Accion                                                                DURACION:2h 41m                                                          DIRECTOR:Ryan Coogler")
 
-
 #---------------------------------------------
-botton_argentina=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:arg1985())
-botton_argentina.place(x=50, y=280)  
-
-botton_avatar=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:avatar())
-botton_avatar.place(x=50, y=630) 
-
-botton_dontworrydarling=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:dontworrydarling())
-botton_dontworrydarling.place(x=590, y=280) 
-
-botton_lahuerfana=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:lahuerfana())
-botton_lahuerfana.place(x=320, y=280)
-
-botton_sonrie=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:sonrie())
-botton_sonrie.place(x=850, y=280)    
-
-botton_blackadam=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:blackadam())
-botton_blackadam.place(x=1100, y=280)
-
-botton_thor=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:thor())
-botton_thor.place(x=320, y=630)
-
-botton_minions=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:losminions())
-botton_minions.place(x=590, y=630) 
-
-botton_topgun=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:topgun())
-botton_topgun.place(x=850, y=630) 
-
-botton_panther=Button(root, font=("Calibri", 12, "bold"), text="▶", command=lambda:blackpanther())
-botton_panther.place(x=1100, y=630)
-    
-root.mainloop()
-
-
