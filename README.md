@@ -20,9 +20,9 @@ Este proyecto esta siendo desarrollado por alumnos del **INSM** para la asignatu
 
 Trata de un _catalogo de peliculas interactivo y user friendly_ pensado para el cine de nuestra ciudad **CINEMA2000 Arroyito**.
 
-#### Posee:
+#### En su version final contara con:
 > * Sistema de autenticación y usuarios.
-> * Peliculas con su respectiva información y trailer.
+> * Seccion de peliculas con su información y trailer.
 > * Seccion de comida.
 > * Seccion de compra de entradas.
 > * Seccion de administración (visible para el usuario administrador).
