@@ -29,7 +29,7 @@ Trata de un _catalogo de peliculas interactivo y user friendly_ pensado para el 
 
 
 #### Si deseas contactarte con los desarrolladores del proyecto:
-> * [Envianos un mail](mailto:felicianoromero.sec@institutolamerced.edu.ar?Subject=Proyecto%20Cinema%202000). 
+> * [Envianos un mail](mailto:felicianoromero.sec@isntitutolamerced.edu.ar?subject=Proyecto%20-%20Catalogo%20de%20peliculas%20(Cinema%202000)&body=Queria%20contactarme%20con%20los%20desarrolladores%20porque%3A). 
 > * [Envianos un mensaje](https://wa.me/5493576412346).
 
 #### Si deseas dejar una sugerencia para el proyecto:
