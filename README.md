@@ -31,4 +31,11 @@ Trata de un _catalogo de peliculas interactivo y user friendly_ pensado para el 
 #### Si deseas contactarte con los desarrolladores del proyecto:
 > * [Envianos un mail](). 
 > * [Envianos un mensaje]().
-> * Deja tu sugerencia en [nuestro foro]().
+
+#### Si deseas dejar una sugerencia para el proyecto:
+> * Hazlo a traves del [formulario de sugerencias]().
+> * O utiliza la plantilla de Github.
+
+#### Si deseas reportar un error en el proyecto:
+> * Hazlo a traves del [formulario de bugs]().
+> * O utiliza la plantilla de Github.
