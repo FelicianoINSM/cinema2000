@@ -29,13 +29,13 @@ Trata de un _catalogo de peliculas interactivo y user friendly_ pensado para el 
 
 
 #### Si deseas contactarte con los desarrolladores del proyecto:
-> * [Envianos un mail](). 
-> * [Envianos un mensaje]().
+> * [Envianos un mail](mailto:felicianoromero.sec@institutolamerced.edu.ar?Subject=Proyecto%20Cinema%202000). 
+> * [Envianos un mensaje](https://wa.me/5493576412346).
 
 #### Si deseas dejar una sugerencia para el proyecto:
-> * Hazlo a traves del [formulario de sugerencias]().
+> * Hazlo a traves del [formulario de sugerencias](https://forms.gle/Nniv9D43jAfkxfYv5).
 > * O utiliza la plantilla de Github.
 
 #### Si deseas reportar un error en el proyecto:
-> * Hazlo a traves del [formulario de bugs]().
+> * Hazlo a traves del [formulario de errores](https://forms.gle/byfg1oy4CRsiRRREA).
 > * O utiliza la plantilla de Github.
