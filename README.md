@@ -27,8 +27,10 @@ Trata de un _catalogo de peliculas interactivo y user friendly_ pensado para el 
 > * Seccion de compra de entradas.
 > * Seccion de administración (visible para el usuario administrador).
 
+Contacto
+--------
 
-#### Si deseas contactarte con los desarrolladores del proyecto:
+Si deseas contactarte con los desarrolladores del proyecto:
 > * [Envianos un mail](mailto:felicianoromero.sec@isntitutolamerced.edu.ar?subject=Proyecto%20-%20Catalogo%20de%20peliculas%20(Cinema%202000)&body=Queria%20contactarme%20con%20los%20desarrolladores%20porque%3A). 
 > * [Envianos un mensaje](https://wa.me/5493576412346).
 
