@@ -26,6 +26,7 @@ Trata de un _catalogo de peliculas interactivo y user friendly_ pensado para el 
 > * Seccion de comida.
 > * Seccion de compra de entradas.
 > * Seccion de administración (visible para el usuario administrador).
+> * Compatibilidad con Android.
 
 Contacto
 --------
