@@ -22,6 +22,7 @@ Trata de un _catalogo de peliculas interactivo y user friendly_ pensado para el 
 
 #### En su version final contara con:
 > * Sistema de autenticación y usuarios.
+> * Sistema de saldo.
 > * Seccion de peliculas con su información y trailer.
 > * Seccion de comida.
 > * Seccion de compra de entradas.
