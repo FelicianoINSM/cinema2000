@@ -9,7 +9,7 @@ from tkinter import messagebox
 root=Tk()
 Miframe= Frame(root, width= 1280, height=720)
 #------------------------------------------
-
+.
 root.title("CINEMA2000")
 #root.iconbitmap("Users/clari/OneDrive/Escritorio/cc/escuela/tlp/PYTHON/proyecto tlp/logo.ico")
 root.resizable(1,1)
