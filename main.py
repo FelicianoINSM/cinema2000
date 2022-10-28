@@ -1,9 +1,8 @@
 # Imports
-
 from tkinter import *
+import modules.db.dbFunc
 from poo.classes import *
 from poo.objects import *
-import sqlite3
 
 #------------------------------------------
 
@@ -21,25 +20,17 @@ root.title("CINEMA2000")
 root.resizable(1,1)
 root.config(bg="pink")
 #-----------------------------------------
+
 #Base de datos
-def crear_base():
-    connection=sqlite3.connnect("cine1.db")
-    return connection
+
+modules.db.dbFunc.crear_base()
+
 #------------------------------------------
-#Tabla
-def crear_tabla(connection):
-    connection = crear_base()
-    cursor = connection.cursor()
-    sql = "CREATE TABLE IF NOT EXISTS \
-            peliculas(\
-                titulo TEXT NOT NULL,\
-                    sinapsis TEXT NOT NULL,\
-                        genero TEXT NOT NULL,\
-                            duracion TEXT NOT NULL,\
-                                director TEXT NOT NULL\
-                              )" 
-    cursor.execute(sql)
-    connection.commit()
+
+#Tablas
+
+modules.db.dbFunc.tableMovie()
+
 #-----------------------------------------
 
 # Images load
