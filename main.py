@@ -3,6 +3,7 @@
 from tkinter import *
 from poo.classes import *
 from poo.objects import *
+import sqlite3
 
 #------------------------------------------
 
@@ -19,9 +20,27 @@ root.title("CINEMA2000")
 #root.iconbitmap("Users/clari/OneDrive/Escritorio/cc/escuela/tlp/PYTHON/proyecto tlp/logo.ico")
 root.resizable(1,1)
 root.config(bg="pink")
-
+#-----------------------------------------
+#Base de datos
+def crear_base():
+    connection=sqlite3.connnect("cine1.db")
+    return connection
 #------------------------------------------
-
+#Tabla
+def crear_tabla(connection):
+    connection = crear_base()
+    cursor = connection.cursor()
+    sql = "CREATE TABLE IF NOT EXISTS \
+            peliculas(\
+                titulo TEXT NOT NULL,\
+                    sinapsis TEXT NOT NULL,\
+                        genero TEXT NOT NULL,\
+                            duracion TEXT NOT NULL,\
+                                director TEXT NOT NULL\
+                              )" 
+    cursor.execute(sql)
+    connection.commit()
+#-----------------------------------------
 
 # Images load
 
