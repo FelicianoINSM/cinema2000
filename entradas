@@ -1,0 +1,212 @@
+from tkinter import *
+from tkinter import ttk
+import tkinter as tk
+from tkinter import messagebox
+import sqlite3
+#------------------------------------------
+# Window config
+root=Tk()
+Miframe= Frame(root, width= 1280, height=720)
+
+#------------------------------------------
+# Tkinter config
+root.title("CINEMA2000")
+#root.iconbitmap("Users/clari/OneDrive/Escritorio/cc/escuela/tlp/PYTHON/proyecto tlp/logo.ico")
+root.resizable(1,1)
+root.config(bg="maroon")
+#-----------------------------------------
+#base de datos
+def crear_base2():
+    connection=sqlite3.connnect("cine2.db")
+    return connection
+#---------------------------------------------------------
+#tabla
+def crear_tabla2(connection):
+    connection = crear_base2()
+    cursor = connection.cursor()
+    sql = "CREATE TABLE IF NOT EXISTS \
+            entradas(\
+                id INTEGER PRIMARY KEY AUTOINCREMENT,\
+                    pelicula TEXT NOT NULL,\
+                        dia TEXT NOT NULL,\
+                            horario TEXT NOT NULL,\
+                                formato TEXT NOT NULL,\
+                                    cantidad NUMERIC NOT NULL\
+                              )" 
+    cursor.execute(sql)
+    connection.commit()
+#-----------------------------
+#variables
+miId=StringVar()
+miPelicula=StringVar()
+miDia= StringVar()
+miHorario=StringVar()
+miFormato=StringVar()
+miCantidad=StringVar()
+#-----------------------------------
+#funciones
+def comprar(pelicula, dia, horario, formato, cantidad):
+    connection = crear_base2()
+    cursor = connection.cursor()
+
+    data=(pelicula, dia, horario, formato, cantidad)
+    sql="INSERT INTO entradas(pelicula, dia, horario, formato, cantidad) VALUES(?, ?, ?, ?, ?)"
+    try:
+        cursor.execute(sql, data)
+        connection.commit()
+        messagebox.showinfo(title="Compra realizada con exito", message=f"Has comprado {cantidad} para {pelicula} en {formato} el {dia} a las {horario}")
+    except:
+        messagebox.showwarning(title="ADVERTENCIA", text="Error al comprar, intentelo de nuevo")
+    limpiarCampos()
+    mostrar()
+
+def limpiarCampos():
+    miId.set("")
+    miPelicula.set("")
+    miDia.set("")
+    miHorario.set("")
+    miFormato.set("")
+    miCantidad.set("")
+
+def mostrar():
+    connection = crear_base2()
+    cursor = connection.cursor()
+    compras=tree.get_children()
+    records = cursor.fetchall()
+    print("Total rows are:  ", len(records))
+    for elemento in compras:
+        tree.delete(elemento)
+    try: 
+        cursor.execute("SELECT * FROM entradas")
+        for row in cursor:
+            tree.insert("",0, text=row[0], values=(row[1],row[2],row[3], row[4], row[5]))
+
+    except:
+        pass
+
+def select(event):
+    item=tree.identify("item", event.x, event.y)
+    miId.set(tree.item(item, "text"))
+    miPelicula.set(tree.item(item, "values")[0])
+    miDia.set(tree.item(item, "values")[1])
+    miHorario.set(tree.item(item, "values")[2])
+    miFormato.set(tree.item(item, "values")[3])
+    miCantidad.set(tree.item(item, "values")[4])
+def actualizar():
+    connection = crear_base2()
+    cursor = connection.cursor()
+    try:
+        datos=miPelicula.get(), miDia.get(), miHorario.get(), miFormato.get(), miCantidad.get()
+        cursor.execute("UPDATE entradas SET PELICULA=?, DIA=?, HORARIO=?, FORMATO=?, CANTIDAD=? WHERE ID="+miId.get(), (datos))
+        connection.commit()
+    except:
+        messagebox.showwarning(title="ADVERTENCIA", message="Error al comprar, intentelo de nuevo")
+    limpiarCampos()
+    mostrar()
+
+def cancelar():
+    Borrar = tree.selection()
+    item = tree.item(Borrar)
+    id_del = item["text"]
+
+    Rta = messagebox.askquestion(
+        "Cancelar Compra",
+        f"¿Está seguro que desea cancelar la compra {item['text']}?",
+    )
+
+    if Rta == "yes":
+
+        conexion = crear_base2()
+        cursor = conexion.cursor()
+        sql = "DELETE FROM entradas WHERE id = ?;"
+        data = (id_del,)
+
+        try:
+            cursor.execute(sql, data)
+            conexion.commit()
+            tree.delete(Borrar)
+            messagebox.showinfo(
+                title="Compra cancelada con exito",
+                message=f"La compra {item['text']} fue cancelada correctamente",
+            )
+        except:
+            messagebox.showerror(
+                title="ADVERTENCIA", message="Se ha producido un error, revise!"
+            )
+
+    connection = crear_base2()
+    cursor = connection.cursor()
+    try:
+        if messagebox.askyesno(title="ADVERTENCIA", message="¿Estas seguro que quiere cancelar la compra?"):
+            cursor.execute("DELTE FROM entradas WHERE ID="+miId.get())
+            connection.commit()
+    except:
+        messagebox.showwarning(title="ADVERTENCIA", text="Error al cancelar, intentelo de nuevo")
+    limpiarCampos()
+    mostrar()
+
+#-------------------------------------------------------
+#treeview
+tree = ttk.Treeview(root) 
+tree["columns"] = ("pelicula", "dia", "horario", "formato", "cantidad")
+tree.column("#0", width=20, minwidth=32, anchor=W)
+tree.column("pelicula", width=50, minwidth=40, anchor=W)
+tree.column("dia", width=50, minwidth=45, anchor=W)
+tree.column("horario", width=50, minwidth=40, anchor=W)
+tree.column("formato", width=50, minwidth=45, anchor=W)
+tree.column("cantidad", width=50, minwidth=60, anchor=W)
+tree.heading("#0", text="ID")
+tree.heading("pelicula", text="Pelicula")
+tree.heading("dia", text="Horario")
+tree.heading("horario", text="Día")
+tree.heading("formato", text="Formato")
+tree.heading("cantidad", text="Cantidad")
+tree.grid(column=0, row=2, columnspan=5, ipadx=60, ipady=60)  # Ubicacion
+
+
+#-------------------------------------------------------
+#pelicula
+lblpelicula=Label(text="Seleccione la pelicula", bg="white", font="bold").place(x=550, y=40)
+combo = ttk.Combobox()
+combo = ttk.Combobox(state="readonly")
+combo.place(x=550, y=70)
+opciones=["ARGENTINA 1985", "AVATAR 2", "DON'T WORRY DARLING", "LA HUERFANA: EL ORIGEN", "SONRIE", "BLACK ADAM", "THOR: AMOR Y TRUENO", "MINIONS: NACE UN VILLANO", "TOP GUN: MAVERICK", "BLACK PANTHER 2: WAKANDA FOREVER"]
+combo["values"]=opciones
+#dia
+lbldia=Label(text="Seleccione el día", bg="white", font="bold").place(x=550, y=120)
+combo2 = ttk.Combobox()
+combo2 = ttk.Combobox(state="readonly")
+combo2.place(x=550, y=150)
+opciones2=["JUEVES 1/12", "VIERNES 2/12", "SABADO 3/12", "DOMINGO 4/12"]
+combo2["values"]=opciones2
+#horario
+lblhora=Label(text="Seleccione el horario", bg="white", font="bold").place(x=850, y=40)
+combo3 = ttk.Combobox()
+combo3 = ttk.Combobox(state="readonly")
+combo3.place(x=850, y=70)
+opciones3=["16:30", "19:30", "22:00"]
+combo3["values"]=opciones3
+#formato
+lblformato=Label(text="Seleccione el formato", bg="white", font="bold").place(x=850, y=120)
+combo4 = ttk.Combobox()
+combo4 = ttk.Combobox(state="readonly")
+combo4.place(x=850, y=150)
+opciones4=["2D CAST", "3D CAST", "2D CAST", "3D SUBT"]
+combo4["values"]=opciones4
+#cantidad
+lblcantidad=Label(text="Seleccione la cantidad de entradas ha comprar", bg="white", font="bold").place(x=550, y=210)
+combo5 = ttk.Combobox()
+combo5 = ttk.Combobox(state="readonly")
+combo5.place(x=550, y=245)
+opciones5=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+combo5["values"]=opciones5
+
+#----------------------------------------------
+#botones
+button_entrada=Button(root, font=("bold"), text="COMPRAR", command=lambda: comprar())
+button_entrada.place(x=40, y=400)
+button_entrada=Button(root, font=("bold"), text="CANCELAR", command=lambda: cancelar())
+button_entrada.place(x=250, y=400)
+#------------------------------------------
+    
+root.mainloop()
