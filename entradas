@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import ttk
-import tkinter as tk
 from tkinter import messagebox
 import sqlite3
 #------------------------------------------
@@ -37,12 +36,18 @@ def crear_tabla2(connection):
     connection.commit()
 #-----------------------------
 #variables
-miId=StringVar()
+miId=IntVar()
 miPelicula=StringVar()
 miDia= StringVar()
 miHorario=StringVar()
 miFormato=StringVar()
 miCantidad=StringVar()
+var_id=IntVar()
+var_pelicula=StringVar()
+var_dia=StringVar()
+var_horario=StringVar()
+var_formato=StringVar()
+var_cantidad=StringVar()
 #-----------------------------------
 #funciones
 def comprar(pelicula, dia, horario, formato, cantidad):
@@ -203,7 +208,7 @@ combo5["values"]=opciones5
 
 #----------------------------------------------
 #botones
-button_entrada=Button(root, font=("bold"), text="COMPRAR", command=lambda: comprar())
+button_entrada=Button(root, font=("bold"), text="COMPRAR", command=lambda: comprar(var_pelicula.get(), var_dia.get(), var_horario.get(), var_formato.get(), var_cantidad.get()),)
 button_entrada.place(x=40, y=400)
 button_entrada=Button(root, font=("bold"), text="CANCELAR", command=lambda: cancelar())
 button_entrada.place(x=250, y=400)

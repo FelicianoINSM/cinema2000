@@ -17,9 +17,9 @@ Miframe= Frame(root, width= 1280, height=720)
 # Tkinter config
 
 root.title("CINEMA2000")
-#root.iconbitmap("Users/clari/OneDrive/Escritorio/cc/escuela/tlp/PYTHON/proyecto tlp/logo.ico")
+root.iconbitmap("./assets/images/logo.ico")
 root.resizable(1,1)
-root.config(bg="pink")
+root.config(bg="white")
 #-----------------------------------------
 #Base de datos
 def crear_base():
